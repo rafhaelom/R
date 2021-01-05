@@ -1,0 +1,47 @@
+---
+title: "Resumo de Dados"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+\section{Tipos de Variáveis}
+
+Planilhas (usualmente na forma eletrônica) são matrizes de dados, construídas com o objetivo de permitir uma análise estatística. Cada *linha da matriz* corresponde a *uma unidade de investigação (por exemplo, unidade amostral)* e *cada coluna*, a *uma variável, que corresponde à realização de uma característica*.
+\newline
+Conforme página 11 do livro Estatística Básica 9º Edição de Bussab e Morettin, será utilizada a tabela sobre alguns aspectos socioeconômicos dos empregados da seção de orçamentos da Companhia MB. Usando informações obtidas do departamento de pessoal, ele elaborou está tabela que pode ser encontrada neste endereço: [Comandos R para análises estatísticas](https://www.ime.usp.br/~pam/scriptsR.html).
+
+```{r}
+# Importando dados.
+load(url(description = "https://www.ime.usp.br/~pam/dados.RData"))
+```           
+
+```{r}
+load("~/IESB_CDIA/CURSOS EXTRAS/Linguagem R/Estatistica_Basica_9_Bussab_Morettin/Resumo de dados/dados.RData")
+```
+
+```{r}
+# Lendo os dados.
+# tab2_1<-read.table("tabela2_1.csv", dec=",", sep=";",h=T)
+
+# dec é o caracter usada para delimitar pontos decimais.
+# sep é o separador de caracter, ou seja, o formato de separação de colunas do arquivo, no caso de .csv é o ";" conforme utilizado acima.
+```
+
+Para saber quais são as variáveis importadas, pode-se utilizar o comando abaixo:
+
+```{r}
+# names é uma função para obter ou definir nomes de objetos.
+names(tab2_1)
+```
+```{r}
+# Visualizando uma parte da tabela.
+# View é uma função para visuzalizar dados a partir de um objeto R.
+# View(x, title) onde x é o objeto e o title é o Título para a visualização.
+View(tab2_1, "Aspectos_Socioeconomicos")
+```
+
+```{r}
+# Com o pacote dplyr e o glimpse podemos ver características dos dados desta tabela, como as variáveis, o seu tipo, e seu primeiros dados.
+pacman::p_load(dplyr)
+glimpse(tab2_1)
+```
